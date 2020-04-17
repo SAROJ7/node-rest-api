@@ -13,6 +13,8 @@ mongoose.connect('mongodb+srv://saroj7:' + process.env.MONGO_ATLAS_PW +'@cluster
     useUnifiedTopology: true
 })
 
+mongoose.Promise = global.Promise;
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
