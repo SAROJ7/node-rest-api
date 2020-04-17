@@ -11,11 +11,14 @@ const orderRoutes = require('./api/routes/orders');
 mongoose.connect('mongodb+srv://saroj7:' + process.env.MONGO_ATLAS_PW +'@cluster0-idr44.mongodb.net/test?retryWrites=true&w=majority',{
     useNewUrlParser :true,
     useUnifiedTopology: true
+    
 })
+//useUnifiedTopology: true
 
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
+app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
